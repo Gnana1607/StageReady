@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f596546055062b94984848c0048a2f09, type: 3}
       propertyPath: m_Name
-      value: Sitting Idle
+      value: std
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
