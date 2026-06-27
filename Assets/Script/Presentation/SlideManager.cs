@@ -18,6 +18,14 @@ public class SlideManager : MonoBehaviour
             screenManager.showSlide(slide[currentSlide]);
         }
     }
+    public void previousSlide()
+    {
+        if (currentSlide > 0)
+        {
+            currentSlide--;
+            screenManager.showSlide(slide[currentSlide]);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
