@@ -3,14 +3,9 @@ using UnityEngine;
 public class ScreenManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]private Renderer presentationScreen;
+    public void showSlide(Texture slide)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        presentationScreen.material.mainTexture = slide;
     }
 }
