@@ -1227,7 +1227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 533258274}
   - component: {fileID: 533258273}
-  - component: {fileID: 533258275}
   m_Layer: 0
   m_Name: AudienceNoiseManager
   m_TagString: Untagged
@@ -1267,19 +1266,6 @@ Transform:
   - {fileID: 270863927}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &533258275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533258272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f662a89a2a8a049a351b0d92aec296, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PresentationEnd
-  clappingSource: {fileID: 270863926}
 --- !u!1 &558759668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,7 +3213,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1351386483
 MonoBehaviour:
@@ -3398,6 +3384,7 @@ MonoBehaviour:
   presentationScreen: {fileID: 1908616114}
   endPresentationText: {fileID: 282834019}
   clappingSource: {fileID: 270863926}
+  audienceNoise: {fileID: 533258273}
   backButton1: {fileID: 484343242}
   backButton2: {fileID: 948391289}
   endPresentation: {fileID: 1351386481}

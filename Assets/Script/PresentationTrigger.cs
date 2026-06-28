@@ -4,14 +4,20 @@ using UnityEngine;
 public class PresentationTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject presentationMenu;
-    [SerializeField]private GameObject presentationScreen;
+    [SerializeField] private GameObject presentationScreen;
+
     [SerializeField] private TMP_Text endPresentationText;
+
     [SerializeField] private AudioSource clappingSource;
-public GameObject backButton1;
-public GameObject backButton2;
-public GameObject endPresentation;
+
+    [SerializeField] private AudienceNoise audienceNoise;
+
+    public GameObject backButton1;
+    public GameObject backButton2;
+    public GameObject endPresentation;
 
     private bool hasShownMenu = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "XR Origin (XR Rig)" && !hasShownMenu)
@@ -21,6 +27,7 @@ public GameObject endPresentation;
             hasShownMenu = true;
         }
     }
+
     public void presentationStart()
     {
         presentationMenu.SetActive(false);
@@ -31,8 +38,10 @@ public GameObject endPresentation;
         endPresentation.SetActive(true);
         endPresentationText.text = "End Presentation";
     }
-     public void freeSpeech()
+
+    public void freeSpeech()
     {
+        presentationScreen.SetActive(false);
         presentationMenu.SetActive(false);
 
         backButton2.SetActive(true);
@@ -40,16 +49,21 @@ public GameObject endPresentation;
         endPresentation.SetActive(true);
         endPresentationText.text = "End Speech";
     }
+
     public void EndPresentation()
     {
+        audienceNoise.StopAudienceNoise();
+
         clappingSource.Play();
 
         presentationScreen.SetActive(false);
         endPresentation.SetActive(false);
         backButton2.SetActive(false);
     }
+
     public void GoBackChoose()
     {
+        presentationScreen.SetActive(false);
         presentationMenu.SetActive(true);
         backButton2.SetActive(false);
     }
