@@ -9,8 +9,9 @@ public class PresentationTrigger : MonoBehaviour
     [SerializeField] private TMP_Text endPresentationText;
 
     [SerializeField] private AudioSource clappingSource;
-
     [SerializeField] private AudienceNoise audienceNoise;
+
+    [SerializeField] private MainMenuManager mainMenuManager;
 
     public GameObject backButton1;
     public GameObject backButton2;
@@ -62,10 +63,13 @@ public class PresentationTrigger : MonoBehaviour
         {
             animator.SetTrigger("Clap");
         }
+
         presentationScreen.SetActive(false);
+        presentationMenu.SetActive(false);
         endPresentation.SetActive(false);
         backButton2.SetActive(false);
-        
+
+        mainMenuManager.OpenCompletion();
     }
 
     public void GoBackChoose()
