@@ -56,9 +56,16 @@ public class PresentationTrigger : MonoBehaviour
 
         clappingSource.Play();
 
+        Animator[] audienceAnimators = GameObject.Find("Students").GetComponentsInChildren<Animator>();
+
+        foreach (Animator animator in audienceAnimators)
+        {
+            animator.SetTrigger("Clap");
+        }
         presentationScreen.SetActive(false);
         endPresentation.SetActive(false);
         backButton2.SetActive(false);
+        
     }
 
     public void GoBackChoose()

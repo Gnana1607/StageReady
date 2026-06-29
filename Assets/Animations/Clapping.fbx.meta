@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 98430bf5243229b4f9b05ae8dce38422
+guid: 0bfc5900967119b44a7f07e2450f7a74
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boy01_Body_MAT1
-    second: {fileID: 2100000, guid: 6828a84dfb688f844a283e4e270af373, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boy01_Brows_MAT2
-    second: {fileID: 2100000, guid: 6d51b945b3555b34a965725d9d451ef7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boy01_Eyes_MAT2
-    second: {fileID: 2100000, guid: 24e975272eeaed4469635c7cffd68b90, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Boy01_Mouth_MAT2
-    second: {fileID: 2100000, guid: a060cca1c4c66c44fb4e5db698e0aac2, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Boy01_FacialAnimMap
-    second: {fileID: 2800000, guid: bd73b9a7561e12b43ac43ad5ec835e0e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Boy01_diffuse
-    second: {fileID: 2800000, guid: 43ea9e1e360015b43a582ceeecae4b11, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Boy01_normal
-    second: {fileID: 2800000, guid: ddc509f3bca336248a8e3855882d096a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Boy01_spec
-    second: {fileID: 2800000, guid: f7a39c07f9c46c04c826008377549608, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -62,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -134,13 +94,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

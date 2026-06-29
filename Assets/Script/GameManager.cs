@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Transform menuSpawn;
     public GameObject roleSelectionPanel;
     public GameObject backButton;
+    public GameObject backtoMain;
     private void SpawnPlayer(Transform spawnPoint)
     {
         xrOrigin.transform.SetPositionAndRotation(
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
             spawnPoint.rotation
         );
         roleSelectionPanel.SetActive(false);
+        backtoMain.SetActive(false);
         backButton.SetActive(true);
     }
     public void SelectStudent()
@@ -31,5 +33,6 @@ public class GameManager : MonoBehaviour
         xrOrigin.transform.SetPositionAndRotation(menuSpawn.position,menuSpawn.rotation);
         roleSelectionPanel.SetActive(true);
         backButton.SetActive(false);
+        backtoMain.SetActive(true);
     }
 }
