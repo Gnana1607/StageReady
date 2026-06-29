@@ -53,22 +53,40 @@ public class PresentationTrigger : MonoBehaviour
 
     public void EndPresentation()
     {
+        // Stop audience talking noise
         audienceNoise.StopAudienceNoise();
 
+        // Play clap sound
         clappingSource.Play();
 
+        // Make all students clap
         Animator[] audienceAnimators = GameObject.Find("Students").GetComponentsInChildren<Animator>();
 
         foreach (Animator animator in audienceAnimators)
         {
-            animator.SetTrigger("Clap");
+            animator.SetBool("Clap", true);
         }
 
+        // Hide presentation UI
         presentationScreen.SetActive(false);
         presentationMenu.SetActive(false);
         endPresentation.SetActive(false);
         backButton2.SetActive(false);
 
+        // Stop clapping after the audio finishes
+        Invoke(nameof(StopClapping), clappingSource.clip.length);
+    }
+
+    private void StopClapping()
+    {
+        Animator[] audienceAnimators = GameObject.Find("Students").GetComponentsInChildren<Animator>();
+
+        foreach (Animator animator in audienceAnimators)
+        {
+            animator.SetBool("Clap", false);
+        }
+
+        // Open completion panel after clapping
         mainMenuManager.OpenCompletion();
     }
 

@@ -1,4 +1,5 @@
 using System;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
@@ -9,6 +10,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject completionPanel;
     [SerializeField] private GameObject roleSelectionPanel;
+    public XROrigin xrOrigin;
+
+    public Transform menuSpawn;
+
+
     public GameObject backToMain;
 
     private void Start()
@@ -17,23 +23,26 @@ public class MainMenuManager : MonoBehaviour
     }
 
     private void HideAllPanels()
-{
-    mainPanel.SetActive(false);
-    aboutPanel.SetActive(false);
-    creditsPanel.SetActive(false);
-    completionPanel.SetActive(false);
+    {
+        mainPanel.SetActive(false);
+        aboutPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+        completionPanel.SetActive(false);
 
-    if (roleSelectionPanel != null)
-        roleSelectionPanel.SetActive(false);
+        if (roleSelectionPanel != null)
+            roleSelectionPanel.SetActive(false);
 
-    if (backToMain != null)
-        backToMain.SetActive(false);
-}
+        if (backToMain != null)
+            backToMain.SetActive(false);
+    }
 
     public void ShowMainMenu()
     {
         HideAllPanels();
-        backToMain.SetActive(false);
+
+        if (backToMain != null)
+            backToMain.SetActive(false);
+
         mainPanel.SetActive(true);
     }
 
@@ -58,9 +67,17 @@ public class MainMenuManager : MonoBehaviour
     public void OpenRoleSelection()
     {
         HideAllPanels();
-        backToMain.SetActive(true);
-        roleSelectionPanel.SetActive(true);
+        xrOrigin.transform.SetPositionAndRotation(
+            menuSpawn.position,
+            menuSpawn.rotation
+        );
+        if (backToMain != null)
+            backToMain.SetActive(true);
+
+        if (roleSelectionPanel != null)
+            roleSelectionPanel.SetActive(true);
     }
+
     public void BackToMainMenu()
     {
         ShowMainMenu();
