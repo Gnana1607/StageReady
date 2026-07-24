@@ -4,6 +4,7 @@ using UnityEngine;
 public class PresentationTrigger : MonoBehaviour
 {
     [Header("UI Panels")]
+    [SerializeField] private AudioRecorder audioRecorder;
     [SerializeField] private GameObject presentationMenu;
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject presentationScreen;
@@ -82,6 +83,8 @@ public class PresentationTrigger : MonoBehaviour
 
     public void StartPresentation()
     {
+        audioRecorder.StartRecording();
+
         readyPanel.SetActive(false);
         backButtonReady.SetActive(false);
 
@@ -121,6 +124,8 @@ public class PresentationTrigger : MonoBehaviour
 
     public void EndPresentation()
     {
+        audioRecorder.StopRecording();
+
         audienceNoise.StopAudienceNoise();
 
         clappingSource.Play();
