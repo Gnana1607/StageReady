@@ -35,6 +35,11 @@ public class AudioRecorder : MonoBehaviour
 
         Microphone.End(microphoneName);
 
+        string filePath = Application.persistentDataPath + "/speech.wav";
+
+        SavWav.Save(filePath, recordedClip);
+
+        Debug.Log("Recording Saved At : " + filePath);
         Debug.Log("Recording Stopped");
     }
 }

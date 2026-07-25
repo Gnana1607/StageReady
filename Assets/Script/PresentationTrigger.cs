@@ -83,6 +83,7 @@ public class PresentationTrigger : MonoBehaviour
 
     public void StartPresentation()
     {
+        Debug.Log("StartPresentation() called");
         audioRecorder.StartRecording();
 
         readyPanel.SetActive(false);
