@@ -9,10 +9,13 @@ public class PresentationTrigger : MonoBehaviour
     [SerializeField] private GameObject readyPanel;
     [SerializeField] private GameObject presentationScreen;
 
+    [Header("Analysis")]
+    [SerializeField] private AnalysisUIManager analysisUIManager;
+
     [Header("Buttons")]
-    public GameObject backButton1;          // Back to Role Selection
-    public GameObject backButton2;          // Back during Presentation
-    public GameObject backButtonReady;      // Back on Ready Panel
+    public GameObject backButton1;
+    public GameObject backButton2;
+    public GameObject backButtonReady;
     public GameObject endPresentation;
 
     [Header("UI Text")]
@@ -83,7 +86,6 @@ public class PresentationTrigger : MonoBehaviour
 
     public void StartPresentation()
     {
-        Debug.Log("StartPresentation() called");
         audioRecorder.StartRecording();
 
         readyPanel.SetActive(false);
@@ -147,10 +149,10 @@ public class PresentationTrigger : MonoBehaviour
         backButton2.SetActive(false);
         endPresentation.SetActive(false);
 
-        Invoke(nameof(StopClapping), clappingSource.clip.length);
+        Invoke(nameof(ShowAnalysis), clappingSource.clip.length);
     }
 
-    private void StopClapping()
+    private void ShowAnalysis()
     {
         Animator[] audienceAnimators =
             GameObject.Find("Students").GetComponentsInChildren<Animator>();
@@ -158,6 +160,27 @@ public class PresentationTrigger : MonoBehaviour
         foreach (Animator animator in audienceAnimators)
         {
             animator.SetBool("Clap", false);
+        }
+
+        if (analysisUIManager != null)
+        {
+            analysisUIManager.StartAnalysis();
+        }
+        else
+        {
+            Debug.LogError("AnalysisUIManager reference is missing!");
+        }
+    }
+
+    // -----------------------
+    // Called by Finish Button
+    // -----------------------
+
+    public void FinishPresentation()
+    {
+        if (analysisUIManager != null)
+        {
+            analysisUIManager.CloseAnalysis();
         }
 
         mainMenuManager.OpenCompletion();
