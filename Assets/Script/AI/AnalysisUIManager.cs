@@ -8,12 +8,8 @@ public class AnalysisUIManager : MonoBehaviour
     [SerializeField] private TMP_Text loadingText;
     [SerializeField] private GameObject resultPanel;
 
-    [Header("Analysis Results")]
-    [SerializeField] private TMP_Text confidenceText;
-    [SerializeField] private TMP_Text transcriptText;
-    [SerializeField] private TMP_Text paceText;
-    [SerializeField] private TMP_Text fillerWordsText;
-    [SerializeField] private TMP_Text suggestionsText;
+    [Header("Analysis Result")]
+    [SerializeField] private TMP_Text analysisText;
 
     public void StartAnalysis()
     {
@@ -27,12 +23,7 @@ public class AnalysisUIManager : MonoBehaviour
 
     public void ShowResult(string result)
     {
-        string transcript = GetSection(
-            result,
-            "TRANSCRIPT:",
-            "CONFIDENCE:"
-        );
-
+        // Get only the feedback sections
         string confidence = GetSection(
             result,
             "CONFIDENCE:",
@@ -60,11 +51,12 @@ public class AnalysisUIManager : MonoBehaviour
         loadingText.gameObject.SetActive(false);
         resultPanel.SetActive(true);
 
-        transcriptText.text = "Transcript: " + transcript;
-        confidenceText.text = "Confidence: " + confidence;
-        paceText.text = "Speaking Pace: " + pace;
-        fillerWordsText.text = "Filler Words: " + fillerWords;
-        suggestionsText.text = suggestions;
+        // Display ONLY feedback. Transcript is intentionally excluded.
+        analysisText.text =
+            "<b>Confidence</b>\n" + confidence +
+            "\n\n<b>Speaking Pace</b>\n" + pace +
+            "\n\n<b>Filler Words</b>\n" + fillerWords +
+            "\n\n<b>Suggestions</b>\n" + suggestions;
     }
 
     public void ShowError(string message)
@@ -77,11 +69,9 @@ public class AnalysisUIManager : MonoBehaviour
     private string GetSection(
         string text,
         string startMarker,
-        string endMarker
-    )
+        string endMarker)
     {
-        int startIndex =
-            text.IndexOf(startMarker);
+        int startIndex = text.IndexOf(startMarker);
 
         if (startIndex == -1)
             return "Not available";
@@ -92,8 +82,7 @@ public class AnalysisUIManager : MonoBehaviour
 
         if (endMarker != null)
         {
-            endIndex =
-                text.IndexOf(endMarker, startIndex);
+            endIndex = text.IndexOf(endMarker, startIndex);
 
             if (endIndex == -1)
                 endIndex = text.Length;
