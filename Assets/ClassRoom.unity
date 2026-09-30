@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05cfb36f6f6f694ea31738faa4284c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeminiManager
-  apiKey: AQ.Ab8RN6IfUkFJGA91g_VK9xEeAaphLivihf05b3mRjTv2MFJZ7g
+  apiKey: 
   model: gemini-3.7-flash
   analysisUIManager: {fileID: 921629405}
   maxRetries: 3
